@@ -9,8 +9,11 @@ for _ in range(N):
 
 
 def dfs(x, y):
+    # 종료조건 1: 얼음 틀을 벗어남
     if x < 0 or x > N - 1 or y < 0 or y > M - 1:
         return False
+
+    # 성공조건: 얼음칸의 값이 0일 경우
     if graph[x][y] == 0:
         graph[x][y] = 1
         dfs(x - 1, y)
@@ -18,6 +21,8 @@ def dfs(x, y):
         dfs(x, y - 1)
         dfs(x, y + 1)
         return True
+
+    # 종료조건 2: 얼음칸의 값이 1일 경우
     return False
 
 
